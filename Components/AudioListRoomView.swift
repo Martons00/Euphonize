@@ -26,9 +26,9 @@ struct AudioListRoomView: View {
     var recordings: [Recording] {
         if searchText == "" {
             return [
-                Recording(fileURL: Bundle.main.url(forResource: room + "1", withExtension: ".mp3")!, createdAt: .now, name: room + "1"),
-                Recording(fileURL: Bundle.main.url(forResource: room + "2", withExtension: ".mp3")!, createdAt: .now, name: room + "2"),
-                Recording(fileURL: Bundle.main.url(forResource: room + "3", withExtension: ".mp3")!, createdAt: .now, name: room + "3")
+                Recording(fileURL: Bundle.main.url(forResource: room + "1", withExtension: ".mp3")!, createdAt: Date(), name: room + "1"),
+                Recording(fileURL: Bundle.main.url(forResource: room + "2", withExtension: ".mp3")!, createdAt: Date(), name: room + "2"),
+                Recording(fileURL: Bundle.main.url(forResource: room + "3", withExtension: ".mp3")!, createdAt: Date(), name: room + "3")
             ] + audioRecorder.recordings  
         } else {
             return audioRecorder.recordings.filter { record in

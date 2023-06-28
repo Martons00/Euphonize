@@ -15,9 +15,9 @@ struct TimerModal: View {
     let roomName : String
     var recordings: [Recording] {
             return [
-                Recording(fileURL: Bundle.main.url(forResource: roomName + "1", withExtension: ".mp3")!, createdAt: .now, name: roomName + "1"),
-                Recording(fileURL: Bundle.main.url(forResource: roomName + "2", withExtension: ".mp3")!, createdAt: .now, name: roomName + "2"),
-                Recording(fileURL: Bundle.main.url(forResource: roomName + "3", withExtension: ".mp3")!, createdAt: .now, name: roomName + "3")
+                Recording(fileURL: Bundle.main.url(forResource: roomName + "1", withExtension: ".mp3")!, createdAt: Date(), name: roomName + "1"),
+                Recording(fileURL: Bundle.main.url(forResource: roomName + "2", withExtension: ".mp3")!, createdAt: Date(), name: roomName + "2"),
+                Recording(fileURL: Bundle.main.url(forResource: roomName + "3", withExtension: ".mp3")!, createdAt: Date(), name: roomName + "3")
             ] + audioRecorder.recordings
     }
     
@@ -32,7 +32,7 @@ struct TimerModal: View {
                         TimerModalIsPresented = false
                     }) {
                         VStack{
-                            Text(NSLocalizedString("Cancel", comment: ""))
+                            Text(NSLocalizedString(".Cancel", comment: ""))
                         }.frame(width: 100)
                     }
                     Spacer()
@@ -47,16 +47,17 @@ struct TimerModal: View {
                         euphoManager.startPlayingInLoop(recording: recordings[audio],selectedInterval: selectedInterval)
                     }) {
                         VStack{
-                            Text(NSLocalizedString("Done", comment: ""))
+                            Text(NSLocalizedString(".Done", comment: ""))
                         }.frame(width: 100)
                     }
                 }
                 .padding()
                 .frame(height: 50)
-                Text("Timer")
+                Text(NSLocalizedString(".TimerTitle", comment: ""))
                     .font(.title)
                     .foregroundColor(.white)
-                Text(NSLocalizedString("timer", comment: ""))
+                    .padding()
+                Text(NSLocalizedString(".TimerSubTitle", comment: ""))
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                 Spacer()

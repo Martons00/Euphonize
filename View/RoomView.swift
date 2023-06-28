@@ -60,20 +60,38 @@ struct RoomView: View {
                     .padding()
             }
             .sheet(isPresented: $TimerModalIsPresented){
-                TimerModal(selectedInterval: $selectedInterval, TimerModalIsPresented: $TimerModalIsPresented,audioRecorder: audioRecorder, audio: $currentAudio,roomName: roomName)
                 
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                .presentationDetents([.medium])
+                if #available(iOS 16.0, *) {
+                    TimerModal(selectedInterval: $selectedInterval, TimerModalIsPresented: $TimerModalIsPresented,audioRecorder: audioRecorder, audio: $currentAudio,roomName: roomName)
+                    
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .presentationDetents([.medium])
+                    
+                }else{
+                        TimerModal(selectedInterval: $selectedInterval, TimerModalIsPresented: $TimerModalIsPresented,audioRecorder: audioRecorder, audio: $currentAudio,roomName: roomName)
+                        
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                }
             }
             
-            .sheet(isPresented: $RecordingModalIsPresented){
+            .sheet(isPresented:
+                    $RecordingModalIsPresented){
+                if #available(iOS 16.0, *) {
                 RecordingModal(audioRecorder: audioRecorder, recordingName: $recordingName, SaveAlertIsPresented: $SaveAlertIsPresented)
-                    .alert(NSLocalizedString("Name your recording", comment: ""),isPresented: $SaveAlertIsPresented) {
+                    .alert(NSLocalizedString(".NameYourSound", comment: ""),isPresented: $SaveAlertIsPresented) {
                         SaveAlert(audioRecorder: audioRecorder, recordingName: $recordingName, SaveAlertIsPresented: $SaveAlertIsPresented)
                     }
                 
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                .presentationDetents([.medium])
+                    .presentationDetents([.medium])
+                } else {
+                       RecordingModal(audioRecorder: audioRecorder, recordingName: $recordingName, SaveAlertIsPresented: $SaveAlertIsPresented)
+                           .alert(NSLocalizedString("Name your recording", comment: ""),isPresented: $SaveAlertIsPresented) {
+                               SaveAlert(audioRecorder: audioRecorder, recordingName: $recordingName, SaveAlertIsPresented: $SaveAlertIsPresented)
+                           }
+                       
+                       .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                }
             }
         }
     }

@@ -24,9 +24,9 @@ struct PlayerView: View {
     
     var recordings: [Recording] {
             return [
-                Recording(fileURL: Bundle.main.url(forResource: roomName + "1", withExtension: ".mp3")!, createdAt: .now, name: roomName + "1"),
-                Recording(fileURL: Bundle.main.url(forResource: roomName + "2", withExtension: ".mp3")!, createdAt: .now, name: roomName + "2"),
-                Recording(fileURL: Bundle.main.url(forResource: roomName + "3", withExtension: ".mp3")!, createdAt: .now, name: roomName + "3")
+                Recording(fileURL: Bundle.main.url(forResource: roomName + "1", withExtension: ".mp3")!, createdAt: Date(), name: roomName + "1"),
+                Recording(fileURL: Bundle.main.url(forResource: roomName + "2", withExtension: ".mp3")!, createdAt: Date(), name: roomName + "2"),
+                Recording(fileURL: Bundle.main.url(forResource: roomName + "3", withExtension: ".mp3")!, createdAt: Date(), name: roomName + "3")
             ] + audioRecorder.recordings
     }
     

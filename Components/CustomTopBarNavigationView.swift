@@ -21,7 +21,7 @@ struct CustomTopBarNavigationView: View {
                         screens = .main
                     }
                 }, label: {
-                    Text("< Back")
+                    Text(NSLocalizedString(".Back", comment: ""))
                         .font(.title3)
                         .bold()
                         .foregroundColor(.white)
@@ -29,7 +29,7 @@ struct CustomTopBarNavigationView: View {
                 Spacer()
             }
             HStack{
-                Text(roomName)
+                Text(NSLocalizedString(roomName, comment: ""))
                     .font(.title2)
                     .bold()
                     .foregroundColor(.white)

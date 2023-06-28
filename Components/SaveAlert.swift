@@ -13,14 +13,14 @@ struct SaveAlert: View {
     @Binding var SaveAlertIsPresented : Bool
     
     var body: some View {
-        TextField(NSLocalizedString("Recording name", comment: ""), text: $recordingName)
+        TextField(NSLocalizedString(".RecordTextField", comment: ""), text: $recordingName)
             .padding()
             .foregroundColor(.black)
         Button(action: {
             self.audioRecorder.deleteRecording(urlsToDelete: [audioRecorder.recordings.last!.fileURL])
             self.SaveAlertIsPresented = false
         }) {
-            Text(NSLocalizedString("Cancel", comment: ""))
+            Text(NSLocalizedString(".Cancel", comment: ""))
                 .foregroundColor(.white)
         }
         
@@ -28,7 +28,7 @@ struct SaveAlert: View {
             self.audioRecorder.editRecordingName(name: recordingName, recording: audioRecorder.recordings.last!)
             self.SaveAlertIsPresented = false
         }) {
-            Text(NSLocalizedString("Save", comment: ""))
+            Text(NSLocalizedString(".Save", comment: ""))
                 .foregroundColor(.white)
         }
     }

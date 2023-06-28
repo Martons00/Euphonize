@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FocusAnimationView: View {
     
-    @ObservedObject var player = AudioPlayer.shared
+    @ObservedObject var player = EuphoManager.shared
     @State var start: Double = 0.0
     @State var progress: Double = 0.0
     @State var andata = true
@@ -24,7 +24,7 @@ struct FocusAnimationView: View {
                 TriangularProgressView(progress: progress, start: start, angle: 180)
             }
             .onReceive(timer) { time in
-                //if self.player.isPlaying{
+                if self.player.isPlaying{
                 if andata{
                     progress = progress + 0.01
                     
@@ -50,7 +50,7 @@ struct FocusAnimationView: View {
                             progress = 0
                         }
                     }
-              //  }
+               }
             }
         }
         }

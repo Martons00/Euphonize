@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  EuphonizeProject
+
+  Created by Raffaele Martone on 28/06/23.
+  
+*/
+".RecordYourAudioTitle" = "Ajouter un son";
+".RecordYourAudioSubTitle" = "Appuyez sur le bouton d'enregistrement pour ajouter un nouveau son à votre pièce.";
+".RecordTextField" = "Nom du son";
+".NameYourSound" = "Donnez un nom à votre nouveau son";
+".Save" = "Enregistrer";
+".Cancel" = "Annuler";
+".Done" = "Terminé";
+".TimerSubTitle" = "Choisissez l'intervalle";
+".TimerTitle" = "Minuterie";
+".Rooms" = "Pièces";
+"Focus" = "Concentration";
+"Relax" = "Détente";
+".Back" = "< Retour";

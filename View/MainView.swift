@@ -25,7 +25,7 @@ struct MainView: View {
                     }
                     .frame(height: geo.size.height * 0.5)
                     VStack{
-                        Text("Rooms")
+                        Text(NSLocalizedString(".Rooms", comment: ""))
                             .foregroundColor(.white)
                             .font(.largeTitle)
                             .bold()
@@ -36,7 +36,7 @@ struct MainView: View {
                                     rooms = .focus
                                 }
                             }){
-                                CardView(icon: Image("ImgCardFocus"), text: Text("Focus"), namespace: ns)
+                                CardView(icon: Image("ImgCardFocus"), text: Text(NSLocalizedString("Focus", comment: "")), namespace: ns)
                                     .frame(width: geo.size.width * 0.4, height: geo.size.height * 0.25)
                                     .matchedGeometryEffect(id: "CardFocus", in: ns)
                             }
@@ -46,7 +46,7 @@ struct MainView: View {
                                     rooms = .relax
                                 }
                             }){
-                                CardView(icon: Image("ImgCardRelax"), text: Text("Relax"), namespace: ns)
+                                CardView(icon: Image("ImgCardRelax"), text: Text(NSLocalizedString("Relax", comment: "")), namespace: ns)
                                     .frame(width: geo.size.width * 0.4, height: geo.size.height * 0.25)
                                     .matchedGeometryEffect(id: "CardRelax", in: ns)
                             }

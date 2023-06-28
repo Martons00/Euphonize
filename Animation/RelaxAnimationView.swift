@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RelaxAnimationView: View {
-    @ObservedObject var player = AudioPlayer.shared
+    @ObservedObject var player = EuphoManager.shared
     @State var start: Double = 0.3
     @State var progress: Double = 0.3
     @State var start2: Double = 0.7
@@ -30,7 +30,7 @@ struct RelaxAnimationView: View {
                     .rotationEffect(Angle(degrees: 270))
             }.frame(width: 100, height: 300)
                 .onReceive(timer) { time in
-                   // if self.player.isPlaying {
+                    if self.player.isPlaying {
                         if andata{
                             progress = progress + 0.01
                             progress2 = progress2 - 0.01
@@ -65,7 +65,7 @@ struct RelaxAnimationView: View {
                                 }
                             }
                         }
-              //      }
+                   }
                 }
         }
     }
