@@ -60,7 +60,6 @@ public struct LinearWaveformRenderer: WaveformRenderer {
         var s_Samples : [Double] = []
         var count : Int = 0
         let offset = Float(samples.count) / (dur / 0.1)
-        let offset2 = Float(samples.count) / (dur / 0.01)
         for (index, sample) in samples.enumerated() {
             let adjustedIndex: Int
                 if index % Int(offset) == 0 {

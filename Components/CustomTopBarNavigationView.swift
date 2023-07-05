@@ -12,19 +12,29 @@ struct CustomTopBarNavigationView: View {
     @Binding var screens : Screens
     let roomName : String
     @Binding var RecordingModalIsPresented : Bool
+    @ObservedObject var player = EuphoManager.shared
     
     var body: some View {
         HStack{
             HStack{
                 Button(action: {
+                    player.stopLoop()
+                    player.stopPlaying()
                     withAnimation{
                         screens = .main
                     }
                 }, label: {
-                    Text(NSLocalizedString(".Back", comment: ""))
-                        .font(.title3)
-                        .bold()
-                        .foregroundColor(.white)
+                    HStack(alignment:.top) {
+                        Text(Image(systemName: "chevron.left"))
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                        +
+                        Text(NSLocalizedString(".Back", comment: ""))
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                    }
                 })
                 Spacer()
             }
@@ -38,10 +48,12 @@ struct CustomTopBarNavigationView: View {
             HStack{
                 Spacer()
                 Button(action: {
+                    player.stopLoop()
+                    player.stopPlaying()
                     RecordingModalIsPresented = true
                 }, label: {
                     Text("+")
-                        .font(.title3)
+                        .font(.title2)
                         .bold()
                         .padding(.horizontal)
                         .foregroundColor(.white)

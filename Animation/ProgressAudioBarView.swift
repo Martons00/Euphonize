@@ -48,7 +48,7 @@ struct ProgressBarView: View {
     
        
     var body: some View {
-        var proportion = (progress * 360)/duration
+        let proportion = (progress * 360)/duration
         ZStack{
             Color("BackgroundColor")
             HStack{

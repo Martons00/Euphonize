@@ -42,9 +42,11 @@ class EuphoManager: NSObject, ObservableObject {
     
     
     func stopPlaying (){
-        self.isPlaying = false
-        hapticManager?.stopHapticFeedback()
-        audioManager.stopPlayback()
+        if isPlaying{
+            self.isPlaying = false
+            hapticManager?.stopHapticFeedback()
+            audioManager.stopPlayback()
+        }
     }
     
     func stopLoop(){
@@ -62,14 +64,20 @@ class EuphoManager: NSObject, ObservableObject {
     
     func startPlayingInLoop(recording: Recording, selectedInterval: Int){
         let duration = audioManager.getDuration(url: recording.fileURL)
-        let numberOfLoop = Int(Double(selectedInterval)/duration)
-        isInLoop = true
+        print(selectedInterval)
+        print(duration)
+        let numberOfLoop = Int(Double(selectedInterval * 60)/duration)
+        print(numberOfLoop)
+        self.isInLoop = true
         self.startPlaying(recording: recording)
         var timeOfLoop = 0
         var timer : Timer?
         timer = Timer.scheduledTimer(withTimeInterval: duration + 1, repeats: true){ _ in
-            if self.isInLoop == false || timeOfLoop == numberOfLoop{
+            if self.isInLoop == false{
                 timer?.invalidate()
+            }else if timeOfLoop == numberOfLoop{
+                timer?.invalidate()
+                self.isInLoop = false
             }else{
                 self.startPlaying(recording: recording)
             }

@@ -72,7 +72,9 @@ struct AudioListRoomView: View {
     func delete(at offsets: IndexSet) {
         var urlsToDelete = [URL]()
         for index in offsets {
-            urlsToDelete.append(audioRecorder.recordings[index].fileURL)
+            if index > 2{
+                urlsToDelete.append(recordings[index].fileURL)
+            }
         }
         audioRecorder.deleteRecording(urlsToDelete: urlsToDelete)
     }

@@ -29,6 +29,7 @@ struct RecordingModal: View {
                     Text(NSLocalizedString(".RecordYourAudioSubTitle", comment: ""))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
+                        .padding()
                     RecordingAnimationView(audioRecorder : audioRecorder)
                         .foregroundColor(.white)
                         .frame(width: geo.size.width * 0.8,height: geo.size.height * 0.2)

@@ -99,12 +99,12 @@ class HapticManager {
         var dynamicIntensity = [CHHapticDynamicParameter]()
         var dynamicSharpness = [CHHapticDynamicParameter]()
         
-        for (index, sample) in samples.enumerated() {
+        for (_, sample) in samples.enumerated() {
             if sample > 0.2{
                 dynamicIntensity.append(CHHapticDynamicParameter(parameterID: .hapticIntensityControl, value: sample, relativeTime: 0))
                 dynamicSharpness.append(CHHapticDynamicParameter(parameterID: .hapticSharpnessControl, value: 0, relativeTime: 0))
             } else {
-                dynamicIntensity.append(CHHapticDynamicParameter(parameterID: .hapticIntensityControl, value: 0, relativeTime: 0))
+                dynamicIntensity.append(CHHapticDynamicParameter(parameterID: .hapticIntensityControl, value: 0.1, relativeTime: 0))
                 dynamicSharpness.append(CHHapticDynamicParameter(parameterID: .hapticSharpnessControl, value: 0, relativeTime: 0))
             }
         }

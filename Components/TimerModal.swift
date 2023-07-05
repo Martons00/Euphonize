@@ -41,6 +41,7 @@ struct TimerModal: View {
                         .foregroundColor(.gray)
                     Spacer()
                     Button(action: {
+                        TimerModalIsPresented = false
                         if euphoManager.isPlaying{
                             euphoManager.stopPlaying()
                         }

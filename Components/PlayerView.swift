@@ -51,6 +51,7 @@ struct PlayerView: View {
                         Button(action: {
                             audio = Int.random(in: 0..<recordings.count)
                             player.stopPlaying()
+                            player.stopLoop()
                             player.startPlaying(recording: recordings[audio])
                         }) {
                             ZStack {
@@ -65,6 +66,7 @@ struct PlayerView: View {
                             }else{
                                 audio = recordings.count - 1
                             }
+                            player.stopLoop()
                             player.startPlaying(recording: recordings[audio])
                         }) {
                             ZStack {
@@ -75,8 +77,10 @@ struct PlayerView: View {
                         }
                             Button(action: {
                                 if player.isPlaying == false {
+                                    player.stopLoop()
                                     player.startPlaying(recording: recordings[audio])
                                 }else{
+                                    player.stopLoop()
                                     player.stopPlaying()
                                 }
                             }) {
@@ -96,6 +100,7 @@ struct PlayerView: View {
                                 }else{
                                     audio = 0
                                 }
+                            player.stopLoop()
                                 player.startPlaying(recording: recordings[audio])
                         }) {
                             ZStack {
