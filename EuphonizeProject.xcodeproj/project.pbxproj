@@ -167,7 +167,6 @@
 				9F3D07032A4B3E8A00952962 /* CardView.swift */,
 				9F3D07052A4B3E9700952962 /* PlayerView.swift */,
 				9F3D07262A4B9D9E00952962 /* AudioListRoomView.swift */,
-				9F3D071E2A4B99A700952962 /* FocusAnimationView.swift */,
 				9F3D074A2A4CA3D400952962 /* RecordingModal.swift */,
 				9F3D074C2A4CA4E300952962 /* SaveAlert.swift */,
 				9F3D074E2A4CA54600952962 /* TimerModal.swift */,
@@ -184,6 +183,7 @@
 				9F3D07242A4B9AF600952962 /* AnimationLobbyView.swift */,
 				9F3D07442A4C092B00952962 /* RecordingAnimationView.swift */,
 				9F3D07462A4C28E700952962 /* ProgressAudioBarView.swift */,
+				9F3D071E2A4B99A700952962 /* FocusAnimationView.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
